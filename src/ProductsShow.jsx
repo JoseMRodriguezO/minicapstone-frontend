@@ -2,7 +2,7 @@ export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.handleUpdateProduct(props.product.id, params, () => event.target.reset());
+    props.onUpdateProduct(props.product.id, params, () => event.target.reset());
   };
 
   return (
@@ -11,7 +11,7 @@ export function ProductsShow(props) {
       <h2>{props.product.name}</h2>
       <p>price: {props.product.price}</p>
       <p>description: {props.product.description}</p>
-      <p>Supplier: {props.product.supplierId}</p>
+      <p>Supplier: {props.product.supplier_id}</p>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input defaultValue={props.product.name} name="name" type="text" />

@@ -38,7 +38,7 @@ export function Content() {
 
   const handleUpdateProduct = (id, params, successCallback) => {
     console.log("handleUpdateProduct", params);
-    axios.patch(`http://localhost:3000/Products/${id}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/products/${id}.json`, params).then((response) => {
       setProducts(
         products.map((Product) => {
           if (Product.id === response.data.id) {
@@ -67,7 +67,7 @@ export function Content() {
       <ProductsIndex products={products} onShowProduct={handleShowProduct} />
       <ProductsNew onCreateProduct={handleCreateProduct} />
       <Modal show={isProductsShowVisible} onClose={handleClose}>
-        <ProductsShow product={currentProduct} onUpdatePhoto={handleUpdateProduct} />
+        <ProductsShow product={currentProduct} onUpdateProduct={handleUpdateProduct} />
       </Modal>
     </div>
   );
