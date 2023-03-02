@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductsNew } from "./ProductsNew";
-import { ProductsShow } from "../ProductsShow";
+import { ProductsShow } from "./ProductsShow";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
@@ -23,7 +23,7 @@ export function Content() {
   };
 
   const handleCreateProduct = (params, successCallback) => {
-    console.log("handleCreatePhoto", params);
+    console.log("handleCreateProduct", params);
     axios.post("http://localhost:3000/products.json", params).then((response) => {
       setProducts([...products, response.data]);
       successCallback();

@@ -2,26 +2,26 @@ export function ProductsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onCreatePhoto(params, () => event.target.reset());
+    props.onCreateProduct(params, () => event.target.reset());
   };
 
   return (
     <div>
-      <h1>New Photo</h1>
+      <h1>New Product</h1>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
         </div>
         <div>
-          Url: <input name="url" type="text" />
+          price: <input name="price" type="text" />
         </div>
         <div>
-          Width: <input name="width" type="text" />
+          description: <input name="description" type="text" />
         </div>
         <div>
-          Height: <input name="height" type="text" />
+          SupplierId: <input name="supplier_id" type="text" />
         </div>
-        <button type="submit">Create photo</button>
+        <button type="submit">Create Product</button>
       </form>
     </div>
   );
