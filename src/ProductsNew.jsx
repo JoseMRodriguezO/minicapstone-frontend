@@ -19,6 +19,9 @@ export function ProductsNew(props) {
           description: <input name="description" type="text" />
         </div>
         <div>
+          Image_url: <input name="image_url" type="text" />
+        </div>
+        <div>
           SupplierId: <input name="supplier_id" type="text" />
         </div>
         <button type="submit">Create Product</button>

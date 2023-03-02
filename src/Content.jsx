@@ -58,6 +58,14 @@ export function Content() {
     setIsProductsShowVisible(false);
   };
 
+  const handleDestroyProduct = (product) => {
+    console.log("handleDestroyProduct", product);
+    axios.delete(`http://localhost:3000/products/${product.id}.json`).then((response) => {
+      setProducts(products.filter((p) => p.id !== product.id));
+      handleClose();
+    });
+  };
+
   useEffect(handleIndexProducts, []);
   return (
     <div>
@@ -67,7 +75,11 @@ export function Content() {
       <ProductsIndex products={products} onShowProduct={handleShowProduct} />
       <ProductsNew onCreateProduct={handleCreateProduct} />
       <Modal show={isProductsShowVisible} onClose={handleClose}>
-        <ProductsShow product={currentProduct} onUpdateProduct={handleUpdateProduct} />
+        <ProductsShow
+          product={currentProduct}
+          onUpdateProduct={handleUpdateProduct}
+          onDestroyProduct={handleDestroyProduct}
+        />
       </Modal>
     </div>
   );

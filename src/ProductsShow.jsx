@@ -5,6 +5,10 @@ export function ProductsShow(props) {
     props.onUpdateProduct(props.product.id, params, () => event.target.reset());
   };
 
+  const handleClick = () => {
+    props.onDestroyProduct(props.product);
+  };
+
   return (
     <div>
       <h1>Products Info</h1>
@@ -25,6 +29,7 @@ export function ProductsShow(props) {
 
         <button type="submit">Update product</button>
       </form>
+      <button onClick={handleClick}>Destroy Product</button>
     </div>
   );
 }
