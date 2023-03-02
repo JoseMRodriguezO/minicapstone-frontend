@@ -2,7 +2,7 @@ export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdateProduct(props.product.id, params, () => event.target.reset());
+    props.handleUpdateProduct(props.product.id, params, () => event.target.reset());
   };
 
   return (
