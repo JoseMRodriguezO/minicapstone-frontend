@@ -4,6 +4,7 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +20,7 @@ export function Signup() {
       .catch((error) => {
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
+        setStatus(error.response.status);
       });
   };
   const handleChange = (event) => {
@@ -28,6 +30,7 @@ export function Signup() {
   return (
     <div id="signup">
       <h1>Signup</h1>
+      {status ? <img src={`https://http.cat/${status}`} alt="" /> : null}
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
