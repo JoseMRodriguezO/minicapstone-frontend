@@ -4,8 +4,7 @@ export function Header() {
   return (
     <header>
       <nav>
-        <Link to="/">Home</Link> | <Link to="/products">All products</Link> |{" "}
-        <Link to="/products/new">New product</Link>
+        <Link to="/">Home</Link> | <Link to="/products">All products</Link> |<Link to="/products/new">New product</Link>
       </nav>
       {localStorage.jwt === undefined ? (
         <>
