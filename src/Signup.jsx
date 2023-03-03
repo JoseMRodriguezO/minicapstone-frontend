@@ -21,7 +21,10 @@ export function Signup() {
         setErrors(error.response.data.errors);
       });
   };
-
+  const handleChange = (event) => {
+    let userInputtedName = event.target.value;
+    setName(userInputtedName);
+  };
   return (
     <div id="signup">
       <h1>Signup</h1>
@@ -32,7 +35,6 @@ export function Signup() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input value={name} onChange={(event) => setName(event.target.value)} name="name" type="text" />
           <small>{20 - name.length} characters remaining</small>
         </div>
         <div>
